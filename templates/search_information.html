@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Information</title>
+</head>
+
+<body>
+
+    <h1>Search Student Information</h1>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+    <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+
+    <form action="/search_information" method="POST">
+        <label for="search_query">Enter Roll No. or Name:</label>
+        <input type="text" id="search_query" name="search_term" required><br><br>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+    <h2>Search Results for "{{ search_term }}"</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Roll No.</th>
+                <th>Section</th>
+                <th>CGPA</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in results %}
+            <tr>
+                <td>{{ student['name'] }}</td>
+                <td>{{ student['branch'] }}</td>
+                <td>{{ student['roll_no'] }}</td>
+                <td>{{ student['section'] }}</td>
+                <td>{{ student['cgpa'] }}</td>
+                <td>{{ student['phone'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+
+</html>
