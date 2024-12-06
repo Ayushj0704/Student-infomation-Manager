@@ -30,24 +30,9 @@ JSON/CSV: For data storage. 📊
 1. Clone the repository:
 
 
-
-git clone https://github.com/your-username/student-information-manager.git
+git clone https://github.com/Ayushj0704/student-information-manager.git
 cd student-information-manager
 
-2. Create a virtual environment (optional but recommended):
-
-
-
-python -m venv venv
-source venv/bin/activate  # On Windows use venv\Scripts\activate
-
-3. Install the required dependencies:
-
-
-
-pip install -r requirements.txt
-
-4. Run the app:
 
 
 
